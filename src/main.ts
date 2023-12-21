@@ -8,7 +8,7 @@ bootstrapApplication(AppComponent, appConfig)
 
 declare const mixpanel: any;
 
-mixpanel.init('b1240a9ba2a51e785e88b0bbc1998ddf')
+mixpanel.init('')
 mixpanel.track('coso',{
   distinct_id: 'unique client id'
   })
