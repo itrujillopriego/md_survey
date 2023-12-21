@@ -14,7 +14,7 @@ export class MixpanelServiceService {
    * @memberof MixpanelServiceService
    */
   init(userToken: string): void {
-    mixpanel.init('b1240a9ba2a51e785e88b0bbc1998ddf');
+    mixpanel.init('');
     mixpanel.identify(userToken);
   }
 
