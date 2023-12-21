@@ -21,13 +21,15 @@ export class AppComponent  {
     this._locale = newValue;
   }
 
-  changeLocale(locale: string) { 
+  changeLocale(locale: string) {
     this.locale = locale;
   }
 
   title = 'My First Survey';
 
 }
+
+
 
 
 

@@ -4,3 +4,18 @@ import { AppComponent } from './app/app.component';
 
 bootstrapApplication(AppComponent, appConfig)
   .catch((err) => console.error(err));
+
+
+declare const mixpanel: any;
+
+mixpanel.init('b1240a9ba2a51e785e88b0bbc1998ddf')
+mixpanel.track('coso',{
+  distinct_id: 'unique client id'
+  })
+const pageName = window.location.pathname;
+
+const tracking_params = {
+  'page_name': pageName,
+  'language': navigator.language,
+}
+mixpanel.track('page_view', tracking_params);

@@ -3,9 +3,13 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "surveyjs-angular-helloworld": {
+    "surveyjs-creator-angular": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "css"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -20,14 +24,33 @@
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "css",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "*",
+                "input": "node_modules/@uswds/uswds/dist/fonts",
+                "output": "assets/fonts/"
+              },
+              {
+                "glob": "*",
+                "input": "node_modules/@uswds/uswds/dist/img",
+                "output": "assets/img/"
+              }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/survey-core/defaultV2.min.css",
+              "node_modules/@uswds/uswds/dist/css/uswds.min.css",
+              "node_modules/survey-creator-core/survey-creator-core.min.css"
             ],
-            "scripts": []
+
+
+            "scripts": ["node_modules/@uswds/uswds/dist/js/uswds.min.js"],
+            "server": "src/main.server.ts",
+            "prerender": false,
+            "ssr": false
           },
           "configurations": {
             "production": {
@@ -57,10 +80,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "surveyjs-angular-helloworld:build:production"
+              "buildTarget": "surveyjs-creator-angular:build:production"
             },
             "development": {
-              "buildTarget": "surveyjs-angular-helloworld:build:development"
+              "buildTarget": "surveyjs-creator-angular:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -68,7 +91,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "surveyjs-angular-helloworld:build"
+            "buildTarget": "surveyjs-creator-angular:build"
           }
         },
         "test": {
@@ -79,13 +102,16 @@
               "zone.js/testing"
             ],
             "tsConfig": "tsconfig.spec.json",
+            "inlineStyleLanguage": "css",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
               "src/styles.css",
-              "node_modules/survey-core/defaultV2.min.css"
+              "node_modules/survey-core/defaultV2.min.css",
+              "./node_modules/@uswds/uswds/dist/css/uswds.min.css",
+              "node_modules/survey-creator-core/survey-creator-core.min.css"
             ],
             "scripts": []
           }
@@ -94,6 +120,6 @@
     }
   },
   "cli": {
-    "analytics": "e4018a8f-4049-4aea-9458-ad8055d81024"
+    "analytics": "b1c7ac3e-e7c2-4aed-be5c-b3c8fd7f3f7f"
   }
 }

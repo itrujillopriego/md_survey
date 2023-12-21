@@ -9,7 +9,7 @@ import "survey-core/defaultV2.min.css";
 import { Converter } from "showdown";
 import { HeaderComponent } from '../header/header.component';
 import "survey-core/survey.i18n";
-
+//import {MixpanelServiceService} from "../../mixpanel-service.service"
 
 const pdfDocOptions: IDocOptions = { /* ... */ };
 
@@ -82,9 +82,17 @@ export class SurveyComponent  {
   ngOnChanges() {
         //set the current locale
         this.surveyModel.locale = this.locale;
-        console.log('ngOnChanges: locale='+ this.surveyModel.locale);    
+        console.log('ngOnChanges: locale='+ this.surveyModel.locale);
    }
-
+  // constructor(private mixpanelService: MixpanelServiceService) { }
+  //
+  // someFunction() {
+  //   this.mixpanelService.track('Some action', {
+  //     distinct_id: 'unique client id'
+  //     // customPropertyOne: 'customValueOne',
+  //     // customPropertyTwo: 'customValueTwo'
+  //   });
+  // }
     /*
   uploadFiles(_: any, options: { files: any[]; }) {
       const formData = new FormData();
